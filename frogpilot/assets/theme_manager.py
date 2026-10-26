@@ -13,6 +13,7 @@ from urllib.parse import quote_plus
 from openpilot.frogpilot.assets.download_functions import GITLAB_URL, download_file, get_repository_url, handle_error, handle_request_error, verify_download
 from openpilot.frogpilot.common.frogpilot_utilities import delete_file, extract_zip, load_json_file, update_json_file
 from openpilot.frogpilot.common.frogpilot_variables import ACTIVE_THEME_PATH, RANDOM_EVENTS_PATH, RESOURCES_REPO, THEME_SAVE_PATH, params, params_memory
+from openpilot.frogpilot.common.reemapilot import install_reemapilot_theme
 
 CANCEL_DOWNLOAD_PARAM = "CancelThemeDownload"
 DOWNLOAD_PROGRESS_PARAM = "ThemeDownloadProgress"
@@ -92,6 +93,9 @@ class ThemeManager:
     steering_wheel_save_path = THEME_SAVE_PATH / "steering_wheels/frog.png"
     steering_wheel_save_path.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(steering_wheel_image_path, steering_wheel_save_path)
+
+    # ReemaPilot: bundled ReemaPilot colours + steering wheel
+    install_reemapilot_theme(THEME_SAVE_PATH)
 
   def download_theme(self, theme_component, theme_name, asset_param, frogpilot_toggles):
     self.downloading_theme = True

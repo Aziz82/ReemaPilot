@@ -26,6 +26,8 @@ from openpilot.system.hardware.power_monitoring import VBATT_PAUSE_CHARGING
 from openpilot.system.version import get_build_metadata
 from panda import ALTERNATIVE_EXPERIENCE
 
+from openpilot.frogpilot.common.reemapilot import REEMAPILOT_DEFAULTS
+
 params = Params()
 params_cache = Params("/cache/params")
 params_default = Params("/dev/shm/params_default")
@@ -495,6 +497,9 @@ frogpilot_default_params: list[tuple[str, str | bytes, int, str]] = [
   ("WheelSpeed", "0", 2, "0")
 ]
 
+# ReemaPilot: swap in ReemaPilot's defaults (calm driving, Saudi roads, ReemaPilot look). The "stock" column is left untouched.
+frogpilot_default_params = [(key, REEMAPILOT_DEFAULTS.get(key, value), level, stock) for key, value, level, stock in frogpilot_default_params]
+
 misc_tuning_levels: list[tuple[str, str | bytes, int, str]] = [
   ("SidebarMetrics", "1", 3, "0"),
   ("SLCPriority", "", 2, ""),
@@ -508,7 +513,7 @@ class FrogPilotVariables:
 
     short_branch = get_build_metadata().channel
     self.development_branch = short_branch == "FrogPilot-Development"
-    self.release_branch = short_branch == "FrogPilot"
+    self.release_branch = short_branch in ("FrogPilot", "ReemaPilot")
     self.staging_branch = short_branch == "FrogPilot-Staging"
     self.testing_branch = short_branch == "FrogPilot-Testing"
     self.vetting_branch = short_branch == "FrogPilot-Vetting"

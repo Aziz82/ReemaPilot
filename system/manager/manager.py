@@ -20,6 +20,7 @@ from openpilot.system.version import get_build_metadata, terms_version, training
 
 from openpilot.frogpilot.common.frogpilot_functions import convert_params, frogpilot_boot_functions, setup_frogpilot, uninstall_frogpilot
 from openpilot.frogpilot.common.frogpilot_variables import EXCLUDED_KEYS, frogpilot_default_params, get_frogpilot_toggles, params_cache, params_memory
+from openpilot.frogpilot.common.reemapilot import apply_reemapilot_preset
 
 
 def manager_init() -> None:
@@ -70,6 +71,10 @@ def manager_init() -> None:
       params_cache.put(k, params.get(k))
   params.remove("DoToggleReset")
   params.remove("DoToggleResetStock")
+
+  # ReemaPilot: apply the ReemaPilot preset once on devices that already had FrogPilot settings
+  if not PC:
+    apply_reemapilot_preset(params, params_cache)
 
   frogpilot_boot_functions(build_metadata, params_cache)
 
