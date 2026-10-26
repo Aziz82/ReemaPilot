@@ -33,9 +33,9 @@ REEMAPILOT_DEFAULTS: dict[str, str] = {
   "AccelerationProfile": "0",        # Standard (FrogPilot ships "Sport")
   "DecelerationProfile": "1",        # Eco: coast more when slowing for set speed/curves (full braking still available behind a lead)
   # Following gaps kept tight for Saudi traffic (big gaps invite cut-ins). FrogPilot allows 1.0-3.0 s.
-  "AggressiveFollow": "1.10",        # seconds behind lead in "Aggressive" (FrogPilot: 1.25)
-  "StandardFollow": "1.30",          # seconds behind lead in "Standard" (FrogPilot: 1.45)
-  "RelaxedFollow": "1.60",           # seconds behind lead in "Relaxed" (FrogPilot: 1.75)
+  "AggressiveFollow": "1.00",        # seconds behind lead in "Aggressive" - FrogPilot's minimum (FrogPilot default: 1.25)
+  "StandardFollow": "1.15",          # seconds behind lead in "Standard" (FrogPilot: 1.45)
+  "RelaxedFollow": "1.35",           # seconds behind lead in "Relaxed" (FrogPilot: 1.75)
   "IncreasedStoppedDistance": "0",   # no extra gap when stopped in traffic
   "OnroadDistanceButton": "1",       # on-screen button to switch Aggressive / Standard / Relaxed while driving
 

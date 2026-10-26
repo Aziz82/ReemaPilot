@@ -8,7 +8,7 @@ Personal build of [FrogPilot](https://github.com/FrogAi/FrogPilot) (release of 4
 |---|---|---|---|
 | Calm driving | Acceleration profile | Sport | Standard |
 | | Deceleration profile (no car ahead) | Standard | Eco – coasts more |
-| | Following distance – Aggressive / Standard / Relaxed | 1.25 / 1.45 / 1.75 s | 1.10 / 1.30 / 1.60 s (tight, for Saudi traffic) |
+| | Following distance – Aggressive / Standard / Relaxed | 1.25 / 1.45 / 1.75 s | 1.00 / 1.15 / 1.35 s (Aggressive = FrogPilot minimum) |
 | | Driving-mode button on the driving screen | off | on – tap to switch Aggressive / Standard / Relaxed |
 | Saudi roads | Units | mph | km/h |
 | | Speed-limit offset (all speeds) | +5 / +10 | 0 – drives at the posted limit |
