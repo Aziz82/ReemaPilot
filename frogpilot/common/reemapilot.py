@@ -39,6 +39,16 @@ REEMAPILOT_DEFAULTS: dict[str, str] = {
   "IncreasedStoppedDistance": "0",   # no extra gap when stopped in traffic
   "OnroadDistanceButton": "1",       # on-screen button to switch Aggressive / Standard / Relaxed while driving
 
+  # --- Steering and cruise as separate functions ---------------------------
+  #   Steering only : cruise ON/OFF (main) button on, don't press SET  -> "Always On Lateral"
+  #   Both          : main on + SET
+  #   Cruise only   : while engaged, long-press the distance button    -> steering paused (long-press again to resume)
+  "AlwaysOnLateral": "1",            # steering works without cruise set (needs a reboot to take effect)
+  "AlwaysOnLateralMain": "1",        # ...switched on by the cruise main button
+  "PauseAOLOnBrake": "0",            # keep steering while braking in steering-only mode
+  "LongDistanceButtonControl": "3",  # distance button long press = pause/resume steering (was: Experimental Mode)
+  "DistanceButtonControl": "1",      # distance button short press = cycle driving mode (Aggressive/Standard/Relaxed)
+
   # --- Saudi roads & speed limits -----------------------------------------
   "IsMetric": "1",                   # km/h everywhere
   "Fahrenheit": "0",

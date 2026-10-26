@@ -10,6 +10,9 @@ Personal build of [FrogPilot](https://github.com/FrogAi/FrogPilot) (release of 4
 | | Deceleration profile (no car ahead) | Standard | Eco – coasts more |
 | | Following distance – Aggressive / Standard / Relaxed | 1.25 / 1.45 / 1.75 s | 1.00 / 1.15 / 1.35 s (Aggressive = FrogPilot minimum) |
 | | Driving-mode button on the driving screen | off | on – tap to switch Aggressive / Standard / Relaxed |
+| Steering / cruise | Steering only (no cruise) | cruise main button on, no SET | same – kept on |
+| | Cruise only (no steering) | – | long-press distance button to pause/resume steering |
+| | Distance button short press | driving mode | driving mode (unchanged) |
 | Saudi roads | Units | mph | km/h |
 | | Speed-limit offset (all speeds) | +5 / +10 | 0 – drives at the posted limit |
 | | Offline speed-limit maps | none | Saudi Arabia |
